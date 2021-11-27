@@ -1,0 +1,46 @@
+{% extends 'base_adm.html' %}
+
+{% block title %}Dashboard - Bem Vindos a Livraria Duna {% endblock title %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Criar Autor de Livros </strong>
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if error %}
+                    <h2>{{ error }}</h2>
+                    {% else %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nome</label>
+                        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp"
+                            name="nome">
+                        <small id="namelHelp" class="form-text text-muted">Nunca vamos compartilhar seus dados, com
+                            ninguém.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Nacionalidade</label>
+                        <input type="text" class="form-control" id="exampleInputNacionalidade" name="nacionalidade">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleFormControlTextarea1">Descrição</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            name="descricao"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Criar Autor</button>
+                    {% endif %}
+                    </br>
+                    </br>
+                    </br>
+                </form>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

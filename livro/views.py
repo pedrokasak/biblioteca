@@ -16,7 +16,7 @@ def CriarAutor(request):
         autor_form = AutorForm(request.POST)
         if autor_form.is_valid():
             autor_form.save()
-            return redirect('index')
+            return redirect('livro:listar_autor')
     else:
         autor_form = AutorForm()
     return render(request, 'livro/criar_autor.html', {'autor_form': autor_form})
@@ -27,11 +27,11 @@ def listarAutor(request):
     return render(request, 'livro/listar_autor.html', {'autores': autores})
 
 
-def editarAutor(request, id):
+def editarAutor(request, pk):
     autor_form = None
     error = None
     try:
-        autor = Autor.objects.get(id=id)
+        autor = Autor.objects.get(pk=pk)
         if request.method == 'GET':
             autor_form = AutorForm(instance=autor)
         else:
@@ -45,8 +45,8 @@ def editarAutor(request, id):
     return render(request, 'livro/criar_autor.html', {'autor_form': autor_form, 'error': error})
 
 
-def excluiAutor(request, id):
-    autor = Autor.objects.get(id=id)
+def excluiAutor(request, pk):
+    autor = Autor.objects.get(pk=pk)
     # autor.delete()
     if request.method == 'POST':
         autor.estado = False
@@ -56,7 +56,8 @@ def excluiAutor(request, id):
 
 
 def listarLivro(request):
-    pass
+    livro = Livro.objects.all()
+    return render(request,'livro/listar_livro.html',{'livro':livro})
 
 
 def CadastrarLivro(request):
@@ -70,12 +71,17 @@ def CadastrarLivro(request):
     return render(request, 'livro/criar_livro.html', {'livro_form': livro_form})
 
 
-def editarLivro(request, id):
-    pass
+def editarLivro(request, pk):
+    livro = Livro.objects.get(pk=pk)
+    form = LivroForm(request.POST, instance=livro)
+    if request.method == 'POST':
+        livro.save()
+        return redirect('livro:listar_livro')
+    return render(request,'livro/editar_livro.html',{'livro':livro,'form':form})
 
 
-def excluirLivro(request, id):
-    livro = Livro.objects.get(id=id)
+def excluirLivro(request, pk):
+    livro = Livro.objects.get(pk=pk)
     if request.method == 'POST':
         livro.delete()
         livro.save()

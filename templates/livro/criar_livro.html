@@ -38,9 +38,12 @@
                     
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Autor</label>
+                        
                         <select name="" id="" class="form-control">
-                            <option value="">teste</option>
+                            {% for livro in livro_form %}
+                                <option value="">{{livro.autor_id}}</option>
                         </select>
+                            {% endfor %}
                     </div>
                     <button type="submit" class="btn btn-primary">Criar Autor</button>
                     {% endif %}

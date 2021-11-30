@@ -104,7 +104,7 @@
                             aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Meus Livros</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-fort-awesome"></i><a href="{% url 'livro:cadastrar_livro' %}">Cadastrar Livro</a></li>
-                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Listar Livros</a>
+                            <li><i class="menu-icon ti-themify-logo"></i><a href="{% url 'livro:listar_livro' %}">Listar Livros</a>
                             </li>
                         </ul>
                     </li>
@@ -119,10 +119,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-title">Seo</li><!-- /.menu-title -->
+                    <li class="menu-title">Empréstimos</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
+                            aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Meus Espréstimos</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>

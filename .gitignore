@@ -1,0 +1,9 @@
+.venv/
+
+layout/
+
+.pyre/
+
+.pytype/
+
+.vscode/

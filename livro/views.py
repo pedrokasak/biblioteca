@@ -57,7 +57,7 @@ def excluiAutor(request, pk):
 
 def listarLivro(request):
     livro = Livro.objects.all()
-    return render(request,'livro/listar_livro.html',{'livro':livro})
+    return render(request, 'livro/listar_livro.html', {'livro': livro})
 
 
 def CadastrarLivro(request):
@@ -65,7 +65,7 @@ def CadastrarLivro(request):
         livro_form = LivroForm(request.POST)
         if livro_form.is_valid():
             livro_form.save()
-            return redirect('index')
+            return redirect('livro:listar_livro')
     else:
         livro_form = LivroForm()
     return render(request, 'livro/criar_livro.html', {'livro_form': livro_form})
@@ -77,7 +77,7 @@ def editarLivro(request, pk):
     if request.method == 'POST':
         livro.save()
         return redirect('livro:listar_livro')
-    return render(request,'livro/editar_livro.html',{'livro':livro,'form':form})
+    return render(request, 'livro/editar_livro.html', {'livro': livro, 'form': form})
 
 
 def excluirLivro(request, pk):

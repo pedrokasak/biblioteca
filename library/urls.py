@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from livro.views import Home
+from products.views import *
 from users.views import login
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,7 +15,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('home/', Home, name='index'),
     path('user/',login, name='login'),
-    path('products/',login, name='products'),
+    path('products/',include(('products.urls','products'))),
 ]
 
 if settings.DEBUG:

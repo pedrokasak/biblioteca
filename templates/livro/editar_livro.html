@@ -2,4 +2,62 @@
 
 {% block title %}Dashboard - Bem Vindos a Livraria Duna {% endblock title %}
 {% load static %}
-{% block content %} {% endblock content%}
+{% block content %} 
+<section class="content">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="card row">
+            <div class="card-header">
+                <strong class="card-title">Editar Livros </strong>
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if error %}
+                    <h2>{{ error }}</h2>
+                    {% else %}
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Título do Livro</label>
+                        {{ livro_form.titulo }}
+                        <!-- <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp"
+                            name="nome"> -->
+                        <small id="namelHelp" class="form-text text-muted">Nunca vamos compartilhar seus dados, com
+                            ninguém.</small>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Data de Publicação</label>
+                                {{ livro_form.data_publicacao }}
+                                <!-- <input type="date" class="form-control" id="exampleInputNacionalidade" name="nacionalidade"> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Editora</label>
+                                {{ livro_form.editora }}
+                                <!-- <input type="text" class="form-control" id="exampleInputNacionalidade" name="nacionalidade"> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Autor</label>
+                        {{ livro_form.autor_id }}
+                        <!-- <select name="" id="" class="form-control">
+                            
+                                <option value=""></option>
+                            
+                        </select> -->
+                            
+                    </div>
+                    <button type="submit" class="btn btn-primary">Criar Autor</button>
+                    {% endif %}
+                    </br>
+                    </br>
+                    </br>
+                </form>
+                <p class="card-text">Para cadastrar um livro é necessario cadastrar o autor do livro antes</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content%}

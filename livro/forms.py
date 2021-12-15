@@ -11,4 +11,12 @@ class AutorForm(forms.ModelForm):
 class LivroForm(forms.ModelForm):
     class Meta:
         model = Livro
-        fields = '__all__'
+        
+        fields = ['titulo','data_publicacao','editora','autor_id']
+        
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class':'form-control'}),
+            'data_publicacao': forms.TextInput(attrs={'class':'form-control','type':'date'}),
+            'editora': forms.TextInput(attrs={'class':'form-control'}),
+            'autor_id': forms.Select(attrs={'class':'form-control'}),
+        }

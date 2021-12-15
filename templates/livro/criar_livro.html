@@ -18,8 +18,9 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Título do Livro</label>
-                        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp"
-                            name="nome">
+                        {{ livro_form.titulo }}
+                        <!-- <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp"
+                            name="nome"> -->
                         <small id="namelHelp" class="form-text text-muted">Nunca vamos compartilhar seus dados, com
                             ninguém.</small>
                     </div>
@@ -27,23 +28,26 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Data de Publicação</label>
-                                <input type="date" class="form-control" id="exampleInputNacionalidade" name="nacionalidade">
+                                {{ livro_form.data_publicacao }}
+                                <!-- <input type="date" class="form-control" id="exampleInputNacionalidade" name="nacionalidade"> -->
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Data de Criação</label>
-                                <input type="date" class="form-control" id="exampleInputNacionalidade" name="nacionalidade">
+                                <label for="exampleInputPassword1">Editora</label>
+                                {{ livro_form.editora }}
+                                <!-- <input type="text" class="form-control" id="exampleInputNacionalidade" name="nacionalidade"> -->
                             </div>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Autor</label>
-                        
-                        <select name="" id="" class="form-control">
-                            {% for livro in livro_form %}
-                                <option value="">{{livro.autor_id}}</option>
-                        </select>
-                            {% endfor %}
+                        {{ livro_form.autor_id }}
+                        <!-- <select name="" id="" class="form-control">
+                            
+                                <option value=""></option>
+                            
+                        </select> -->
+                            
                     </div>
                     <button type="submit" class="btn btn-primary">Criar Autor</button>
                     {% endif %}
@@ -51,8 +55,7 @@
                     </br>
                     </br>
                 </form>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
+                <p class="card-text">Para cadastrar um livro é necessario cadastrar o autor do livro antes</p>
             </div>
         </div>
     </div>

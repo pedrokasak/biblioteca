@@ -8,29 +8,31 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong class="card-title">Custom Table</strong>
+                <strong class="card-title">Listagem de livros cadastrados</strong>
             </div>
             <div class="table-stats order-table ov-h">
-                {% if autores %}
+                {% if livro %}
                 <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nomes</th>
-                            <th>Nacionalidade</th>
-                            <th>Descrição</th>
+                            <th>Titulo</th>
+                            <th>Data de Publicação</th>
+                            <th>Autor</th>
+                            <th>Editora</th>
                             <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for autor in autores %}
+                        {% for l in livro %}
                         <tr scope="row">
-                            <td>{{autor.id}}</td>
-                            <td>{{autor.nome}}</td>
-                            <td>{{autor.nacionalidade}}</td>
-                            <td>{{autor.descricao}}</td>
-                            <td><a href="{%url 'livro:editar_autor' autor.id %}" class="btn btn-primary">Editar</a>
-                                <a href="{%url 'livro:excluir_autor' autor.id %}" class="btn btn-danger">Excluir</a>
+                            <td>{{l.id}}</td>
+                            <td>{{l.titulo}}</td>
+                            <td>{{l.data_publicacao}}</td>
+                            <td>{{l.autor_id}}</td>
+                            <td>{{l.editora}}</td>
+                            <td><a href="{% url 'livro:editar_livro' l.id %}" class="btn btn-primary">Editar</a>
+                                <a href="{% url 'livro:excluir_livro' l.id %}" class="btn btn-danger">Excluir</a>
                             </td>
                         </tr>
                         {% endfor %}

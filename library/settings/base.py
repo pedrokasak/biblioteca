@@ -31,11 +31,12 @@ INSTALLED_APPS = [
     'livro',
     'users.apps.UsersConfig',
     'products',
+    'pages.apps.PagesConfig',
     #3rd Party
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'crispy_forms'
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -142,11 +143,14 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+SITE_ID = 1
+LOGIN_REDIRECT_URL = "/home"
+
+
+
 
 # CONFIG DE EMAIL
-SITE_ID = 1
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-LOGIN_REDIRECT_URL = "/"
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False

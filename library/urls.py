@@ -11,10 +11,10 @@ urlpatterns = [
     #django admin
     path('admin/', admin.site.urls),
     #user management
+    path('', include('pages.urls', namespace='pages')),
     path('livro/', include(('livro.urls','livro'))),
     path('accounts/', include('allauth.urls')),
     path('home/', Home, name='index'),
-    path('user/',login, name='login'),
     path('products/',include(('products.urls','products'))),
 ]
 

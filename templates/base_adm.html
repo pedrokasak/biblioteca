@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}Dashboard - Bem Vindos a Livraria Duna {% endblock title %}</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="description" content="Biblioteca Duuna - Em um mundo de conhecimento">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
@@ -248,15 +248,17 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            {% if is_authenticated %}
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Meu Perfil</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificações <span
                                     class="count">13</span></a>
 
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Configurações</a>
+                            
+                            <a class="nav-link" href="{% url'account_signup' %}"><i class="fa fa-power -off"></i>Sair</a>
+                            {% endif %}
+                        </div>                                                                  
                     </div>
 
                 </div>
